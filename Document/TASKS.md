@@ -12,12 +12,12 @@ Kerjakan berurutan. Centang setelah selesai dan sudah diuji.
 
 ## 2. Fondasi
 
-- [x] `utils/format.js` (`formatRupiah`)
+- [x] `utils/format.js` (`formatRupiah`, `buildCompleteReceiptText`)
 - [x] `utils/id.js`
 - [x] `hooks/useLocalStorage.js`
 - [x] `context/BillContext.jsx` (reducer + provider)
 - [x] `utils/cn.js`, `hooks/useMediaQuery.js`, `ThemeContext`
-- [x] Komponen `ui/`: Button, IconButton, Card (ticket dan ink), Input, Segmented, Chip, Avatar, Badge, Dialog, BottomSheet, ResponsiveOverlay, EmptyState, Toast
+- [x] Komponen `ui/`: Button, IconButton, Card (ticket dan ink), Input, Segmented, Chip, Avatar, Badge, Dialog, BottomSheet, ResponsiveOverlay, EmptyState, Toast, ConfirmDialog
 
 ## 3. Peserta
 
@@ -35,6 +35,7 @@ Kerjakan berurutan. Centang setelah selesai dan sudah diuji.
 ## 5. Biaya tambahan
 
 - [x] Form diskon, service, pajak (persen atau nominal)
+- [x] Akordion collapsible dengan toggle panah & badge status saat tertutup
 
 ## 6. Hitung dan ringkasan
 
@@ -44,12 +45,12 @@ Kerjakan berurutan. Centang setelah selesai dan sudah diuji.
 
 ## 7. Polish
 
-- [x] Tombol salin ringkasan (teks siap kirim ke WhatsApp)
+- [x] Tombol salin ringkasan (rincian lengkap WhatsApp: menu, porsi, diskon, service, pajak, grand total)
 - [x] Reset semua dengan konfirmasi
 - [x] Animasi kecil tambah/hapus
 - [x] Mode gelap
 - [x] `MobileLayout`: stepper, hero, bottom bar
-- [x] `DesktopLayout`: dashboard tiga panel
+- [x] `DesktopLayout`: dashboard tiga panel sejajar di atas, full width (`w-full px-6 lg:px-8`), pas layar tanpa scroll kosong
 - [x] Potongan tiket (notch) di kartu item dan ringkasan
 - [x] Cek tampilan 375px, 768px, 1024px, dan 1440px
 

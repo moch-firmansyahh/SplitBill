@@ -1,4 +1,4 @@
-# CLAUDE.md
+# CLAUDE.md / GEMINI.md
 
 Pintu masuk untuk AI coding assistant. Baca file ini sampai habis, lalu baca file rujukan di bagian "Urutan membaca" sebelum menulis kode.
 
@@ -13,7 +13,7 @@ Pintu masuk untuk AI coding assistant. Baca file ini sampai habis, lalu baca fil
 
 ## Tech stack ringkas
 
-React 18 + Vite, JavaScript (bukan TypeScript), Tailwind CSS, lucide-react, state dengan `useReducer` + Context. Detail ada di `TECH_STACK.md`.
+React 18 + Vite, JavaScript (bukan TypeScript), Tailwind CSS v4, lucide-react, helper `clsx` + `tailwind-merge`, state dengan `useReducer` + Context. Detail ada di `TECH_STACK.md`.
 
 ## Perintah
 
@@ -76,13 +76,13 @@ npm run preview    # cek hasil build
 
 ## Ringkasan UI
 
-- Gaya: soft neo-brutalism (latar krem, kartu outline hitam 2px, aksen kuning-amber, kartu hitam untuk total, potongan tiket). Komponen meniru shadcn/ui tetapi ditulis sendiri.
-- **Layout mobile dan desktop berbeda.** Mobile (< 1024px): alur bertahap Peserta, Pesanan, Biaya, Hasil dengan stepper, BottomSheet, dan bottom bar. Desktop (>= 1024px): dashboard tiga panel, semua terlihat sekaligus.
-- Pemilihan layout lewat `useMediaQuery`; kedua layout memakai komponen fitur dan state yang sama.
-- Warna hanya lewat token (`bg-background`, `bg-card`, `bg-primary`, `bg-ink`, dll). Kuning bukan warna teks.
-- Hapus selalu minta konfirmasi. Setiap daftar kosong punya empty state yang ramah.
-- Mode gelap lewat class `dark`, default mengikuti sistem.
-- Detail lengkap ada di `DESIGN.md`.
+- **Gaya**: Soft neo-brutalism (latar krem, kartu outline hitam 2px, aksen kuning-amber, kartu hitam untuk total, potongan tiket/notch struk). Komponen meniru shadcn/ui tetapi ditulis sendiri.
+- **Layout mobile dan desktop berbeda**:
+  - **Mobile (< 1024px)**: Alur bertahap Peserta, Pesanan, Biaya, Hasil dengan stepper, BottomSheet, dan bottom bar tetap.
+  - **Desktop (≥ 1024px)**: Dashboard 3 panel sejajar di bagian atas, lebar penuh (`w-full px-6 lg:px-8`), pas layar tanpa scroll kosong, dan panel ringkasan kanan mengambang mulus (*sticky top-20 self-start*).
+- **Biaya Tambahan**: Akordion collapsible dengan panah buka-tutup dan badge ringkasan saat ditutup.
+- **Salin untuk WhatsApp**: Rincian matematika lengkap transparan (daftar menu, subtotal, potongan diskon, service, pajak, porsi tiap orang, dan grand total).
+- **Mode Gelap**: Menggunakan class `dark`, default mengikuti preferensi sistem, tersimpan di `splitbill:theme`.
 
 ## Definisi selesai
 
@@ -90,23 +90,6 @@ Sebuah tugas dianggap selesai kalau:
 
 - [ ] Berjalan di `npm run dev` tanpa error di console
 - [ ] `npm run build` lolos
-- [ ] Tampilan rapi di 375px
+- [ ] Tampilan rapi di 375px dan desktop
 - [ ] Data tetap ada setelah refresh (jika menyangkut data)
 - [ ] Tugas dicentang di `TASKS.md`
-
-## Kapan harus bertanya
-
-- Instruksi kurang jelas: ajukan **satu** pertanyaan, jangan menebak.
-- Kebutuhan bertabrakan dengan `RESTRICTIONS.md`: berhenti dan tanya.
-- Error belum ketemu penyebabnya setelah dua kali percobaan: berhenti, jelaskan, tanya arah.
-- Jika ada konflik antar file, `RESTRICTIONS.md` yang menang.
-
-## Format laporan setelah selesai
-
-```
-Selesai: <nama tugas>
-File diubah: <daftar file>
-Cara uji: <langkah singkat>
-Catatan: <jika ada>
-Berikutnya: <tugas selanjutnya>
-```

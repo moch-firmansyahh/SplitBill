@@ -2,6 +2,15 @@
 
 ```
 splitbill/
+├─ Document/
+│  ├─ ARCHITECTURE.md
+│  ├─ DESIGN.md
+│  ├─ FOLDER_STRUCTURE.md
+│  ├─ GEMINI.md
+│  ├─ RESTRICTIONS.md
+│  ├─ TASKS.md
+│  ├─ TECH_STACK.md
+│  └─ WORKFLOW.md
 ├─ public/
 ├─ src/
 │  ├─ components/
@@ -40,7 +49,8 @@ splitbill/
 │  │     ├─ ResponsiveOverlay.jsx
 │  │     ├─ EmptyState.jsx
 │  │     ├─ Illustration.jsx
-│  │     └─ Toast.jsx
+│  │     ├─ Toast.jsx
+│  │     └─ ConfirmDialog.jsx
 │  ├─ context/
 │  │  ├─ BillContext.jsx
 │  │  └─ ThemeContext.jsx
@@ -54,7 +64,7 @@ splitbill/
 │  │  └─ id.js
 │  ├─ App.jsx
 │  ├─ main.jsx
-│  └─ index.css            # design tokens ada di sini
+│  └─ index.css            # design tokens & ticket styling ada di sini
 ├─ index.html
 ├─ vite.config.js
 └─ package.json
@@ -62,12 +72,13 @@ splitbill/
 
 ## Fungsi tiap folder
 
+- `Document/`: dokumentasi spesifikasi, desain, dan arsitektur
 - `components/layout`: dua layout terpisah (mobile dan desktop) beserta bagian khususnya
 - `components/people|items|charges|summary|welcome`: komponen per fitur, dipakai bersama oleh kedua layout
-- `components/ui`: komponen dasar bergaya shadcn, dipakai berulang
-- `context`: state bill dan tema
-- `hooks`: custom hooks
-- `utils`: fungsi murni tanpa React
+- `components/ui`: komponen dasar bergaya soft neo-brutalism / shadcn, dipakai berulang
+- `context`: state bill (`BillContext`) dan tema dark/light (`ThemeContext`)
+- `hooks`: custom hooks (`useLocalStorage`, `useMediaQuery`)
+- `utils`: fungsi murni tanpa React (`calculate.js`, `format.js`, `cn.js`, `id.js`)
 
 ## Aturan
 
