@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fce9cf; /* krem peach, latar halaman */
+  --foreground: #161411; /* tinta / hitam hangat */
+  --card: #fff9ee; /* krem terang, latar kartu */
+  --card-foreground: #161411;
+  --primary: #fbc56b; /* kuning amber, aksen utama */
+  --primary-foreground: #161411;
+  --secondary: #f6ddb5; /* krem lebih gelap, chip non-aktif */
+  --secondary-foreground: #161411;
+  --muted: #f3e0bf;
+  --muted-foreground: #7a6a52;
+  --border: #161411; /* outline hitam */
+  --ring: #f5a524;
+  --ink: #161411; /* kartu hitam "Bagianmu" */
+  --ink-foreground: #fff9ee;
+  --success: #2fb36d; /* status lunas */
+  --warning: #e8590c; /* item belum di-assign */
+  --destructive: #e5484d; /* hapus */
+  --radius: 1rem;
+}
+
+.dark {
+  --background: #17130d;
+  --foreground: #fff3dc;
+  --card: #231c12;
+  --card-foreground: #fff3dc;
+  --primary: #fbc56b;
+  --primary-foreground: #161411;
+  --secondary: #33291a;
+  --secondary-foreground: #fff3dc;
+  --muted: #2c2216;
+  --muted-foreground: #b8a486;
+  --border: #fff3dc;
+  --ring: #fbc56b;
+  --ink: #fff3dc; /* kartu total dibalik: terang di atas gelap */
+  --ink-foreground: #161411;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+  opacity: 0.3;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
+
+.ticket {
+  position: relative;
+}
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: var(--notch-y, 50%);
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border-radius: 9999px;
+  background: var(--background);
+  border: 2px solid var(--border);
+  z-index: 1;
+}
+.ticket::before {
+  left: -13px;
+  clip-path: inset(0 0 0 50%);
+}
+.ticket::after {
+  right: -13px;
+  clip-path: inset(0 50% 0 0);
+}
